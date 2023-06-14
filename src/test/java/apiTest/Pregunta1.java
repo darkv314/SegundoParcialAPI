@@ -72,7 +72,7 @@ public class Pregunta1 {
         response.then()
                 .log().all()
                 .statusCode(200)
-                .body("Token", equalTo(token));
+                .body("TokenString", equalTo(token));
 
 
         //Verify Create Project deleted token
@@ -83,7 +83,8 @@ public class Pregunta1 {
         response = FactoryRequest.make("post").send(requestInfo);
         response.then()
                 .log().all()
-                .statusCode(200);
+                .statusCode(200)
+                .body("ErrorCode", equalTo(102));
     }
 
 }
