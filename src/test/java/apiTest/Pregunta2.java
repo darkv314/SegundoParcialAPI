@@ -33,8 +33,8 @@ public class Pregunta2 {
 
         for(int i=0;i<4;i++){
             body.clear();
-            body.put("Content"+Integer.toString(i), "Item1"+Integer.toString(i));
-            requestInfo.setHost(Properties.host+"api/items.json").setBody(body.toString()).setHeaders("Authentication","Basic "+auth);
+            body.put("Content", "New Item"+Integer.toString(i));
+            requestInfo.setHost(Properties.host+"api/items.json").setBody(body.toString()).setHeaders("Authorization", "Basic " + auth);
             response = FactoryRequest.make("post").send(requestInfo);
             response.then()
                     .log().all()
